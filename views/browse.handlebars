@@ -7,13 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="jumbotron text-center">
-    <div class="container img img-responsive">
-
+    <div class="image-container img img-responsive text-center" id="image-container">
     </div>
-    <button type="button" class="btn btn-primary" id="add-btn" name="add-btn">Add to library</button>
-    <button type="button" class="btn btn-danger" id="nxt-btn" name="nxt-btn">Next</button>
+    <div class="btn-container text-center mt-2">
+      <div class="left-btn">
+
+        <button type="submit" class="btn btn-primary btn-cntrl" id="add-btn" name="add-btn">Add to library</button>
+    </div>
+    <div class="right-btn">
+      <form  method="post">
+        <button class="btn btn-danger btn-cntrl" type="button" id="nxt-btn" name="nxt-btn">Next</button>
+      </form>
+    </div>
   </div>
 
+
+  <script src="../../api-request.js" charset="utf-8"></script>
 </body>
 </html>

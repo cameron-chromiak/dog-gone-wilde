@@ -1,0 +1,16 @@
+.right-btn{
+  display: inline-block;
+}
+.left-btn{
+  display: inline-block;
+}
+.img-container>img{
+  max-height: 100%;
+}
+.image-container{
+height: 30vw;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
