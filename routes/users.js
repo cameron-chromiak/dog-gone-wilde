@@ -21,9 +21,14 @@ router.get('/register', (req, res) => {
 //login
 router.post('/login', (req, res, next)=>{
   passport.authenticate('local', {
-    successRedirect: '/browse',
+    successRedirect: '/users/browse',
     failureRedirect: '/users/login'
   })(req, res, next)
+})
+
+router.get('/browse', (req, res, next)=>{
+  console.log('browse')
+  res.render('browse', {user: req.user})
 })
 
 //register form post

@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const session = require('express-session');
 
 const app = express()
 
@@ -11,6 +12,8 @@ mongoose.connect('mongodb://localhost/dogs', {
   useNewUrlParser: true
 }).then(() => console.log('Mongo connected!'))
 .catch(err => console.log(err))
+
+
 
 //set static
 app.use(express.static('public'));
@@ -38,6 +41,21 @@ app.get('/browse', (req, res)=>{
   res.render('browse')
 })
 
+// Express session midleware
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//detect if user is logged in thne display menu items
+// app.use(function (req, res, next){
+//   res.locals.user = req.user || null
+//   next()
+// })
 
 //load routes
 const users = require('./routes/users')
